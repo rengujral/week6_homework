@@ -1,5 +1,6 @@
 # this imports pythons random module
-import random, rps_score_manager
+import random
+from rps_function_manager.rps_score_manager import save_score, read_score
 
 # this block is what the user inputs
 def get_user_choice():
@@ -70,7 +71,10 @@ def play_game():
     Plays a single round of Rock, Paper, Scissors. Prompts the user for input, generates a random computer choice
     :return: str: determining whether the user is a winner or a loser
     """
-    # i have made new variables for the previous functions
+    # Load the current score from the file
+    player_score, computer_score = read_score()
+
+    # Get choices
     user_choice = get_user_choice()
     computer_choice = get_computer_choice()
 
@@ -80,6 +84,18 @@ def play_game():
     # another variable for the winner block of code
     result = determine_winner(user_choice, computer_choice)
     print(result)
+
+    # Update score based on result
+    if "win" in result.lower():
+        player_score += 1
+    elif "lose" in result.lower():
+        computer_score += 1
+
+    # Save the updated scores
+    save_score(player_score, computer_score)
+
+    # print(f"Current Score - You: {player_score}, Computer: {computer_score}")
+    # save_score(player_score, computer_score)
 
 # main trick
 if __name__=='__main__':
