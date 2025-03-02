@@ -1,8 +1,30 @@
 import random
+SAVE_FILE = "scores.txt"  # This is the file where scores will be saved and loaded from
+
 def print_banner(game):
     banner_message = f"{'#' * 50}\n\n   ARE YOU READY TO PLAY {game}?\n\n{'#' * 50}"
     return banner_message
 
+
+
+
+# Function to load the saved scores from a file
+# def load_scores():
+#     # Check if the save file exists before attempting to read it
+#     if os.path.exists(SAVE_FILE):  # If the file exists, we load the data
+#         with open(SAVE_FILE, "r") as file:  # Open the file in read mode
+#             data = file.read().strip().split(",")  # Read file content, remove extra spaces and split by commas
+#             user_score = int(data[0]),  # Total number of user wins
+#             computer_score = int(data[1]) # Total number of computer wins
+#
+#     # If no file exists, return a dictionary with default values (no games played)
+#     return user_score, computer_score
+#
+# def save_scores(stats):
+#     # Open the save file in write mode to overwrite the current scores
+#     with open(SAVE_FILE, "w") as file:
+#         # Write the stats as a comma-separated string (total_games, user_wins, computer_wins, ties)
+#         file.write(f"{stats['total_games']},{stats['user_wins']},{stats['computer_wins']},{stats['ties']}")
 
 def get_user_choice():
     # this is a variable that is a dictionary so each letter corresponds to its full form with use of key value pairs
@@ -60,4 +82,10 @@ def play_game():
 
     print_final_message(user_score, computer_score, tie_message="It is a tie, nobody won", win_message="Congratulations, you won!", lose_message="Sorry, you lost!")
 
-play_game()
+
+def main():
+    play_game()
+
+
+if __name__ == '__main__':
+    main()
