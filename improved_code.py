@@ -16,7 +16,7 @@ def load_score():
     # Only opens the file is it exists
     if os.path.exists(SCORE_FILE):
         # Opens file in read mode
-        with open(SCORE_FILE, "r") as file:
+        with open(SCORE_FILE, "w") as file:
             lines = file.readlines()
             if len(lines) >= 2:
                 player_score = int(lines[0].split(": ")[1])
@@ -76,4 +76,5 @@ def play_game():
 
 # Run the game
 play_game()
+
 
