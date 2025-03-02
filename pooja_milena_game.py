@@ -1,7 +1,6 @@
 # this imports pythons random module
 import random
 
-
 # this block is what the user inputs
 def get_user_choice():
     # this is a variable that is a dictionary so each letter corresponds to its full form with use of key value pairs
