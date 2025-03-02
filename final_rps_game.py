@@ -90,7 +90,7 @@ def play_game(stats):
     computer_choice = get_computer_choice()
     number_of_rounds = int(input("How many rounds would you like to play?").strip())
 
-    
+
     # Print both choices
     print(f"\nYou chose: {user_choice}")
     print(f"Computer chose: {computer_choice}")
